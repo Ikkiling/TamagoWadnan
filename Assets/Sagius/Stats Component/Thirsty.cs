@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class MoodController : StatController
+public class ThirstController : StatController
 {
     protected override void OnStatAdjusted()
     {
         base.OnStatAdjusted();
-        if (level <= 20)
+        if (level <= 0)
         {
-            Debug.Log("Mood is very low! The character feels unhappy.");
+            Debug.Log("Thirst critical! You are dehydrated.");
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             AdjustStat();
         }

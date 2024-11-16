@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class MoodController : StatController
+public class HealthController : StatController
 {
     protected override void OnStatAdjusted()
     {
         base.OnStatAdjusted();
-        if (level <= 20)
+        if (level <= 0)
         {
-            Debug.Log("Mood is very low! The character feels unhappy.");
+            Debug.Log("Health critical! The player has died.");
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             AdjustStat();
         }
