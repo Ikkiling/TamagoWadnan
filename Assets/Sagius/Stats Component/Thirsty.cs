@@ -18,4 +18,38 @@ public class ThirstController : StatController
             AdjustStat();
         }
     }
+
+    private void OnEnable()
+    {
+        Actions.drinkIncreament += ThirstIncrease;
+    }
+
+    private void OnDisable()
+    {
+        Actions.drinkIncreament -= ThirstIncrease;
+    }
+
+    private void ThirstIncrease(int drinkGain)
+    {
+        level += drinkGain;
+
+        if (level > maxValue)
+        {
+            expReturn?.Invoke(1);
+        }
+        else
+        {
+            expReturn?.Invoke(0);
+        }
+
+        level = Mathf.Clamp(level, minValue, maxValue);
+
+        if (slider != null)
+        {
+            slider.value = level;
+        }
+
+        Debug.Log("drink gain = " + drinkGain);
+        Debug.Log("current thirst = " + level);
+    }
 }

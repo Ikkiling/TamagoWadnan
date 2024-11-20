@@ -18,4 +18,39 @@ public class HealthController : StatController
             AdjustStat();
         }
     }
+
+    private void OnEnable()
+    {
+        Actions.medicineIncreament += HealthIncrease;
+    }
+
+    private void OnDisable()
+    {
+        Actions.medicineIncreament -= HealthIncrease;
+    }
+
+    private void HealthIncrease(int medicineGain)
+    {
+        level += medicineGain;
+
+        if (level > maxValue)
+        {
+            expReturn?.Invoke(1);
+        }
+        else
+        {
+            expReturn?.Invoke(0);
+        }
+
+        level = Mathf.Clamp(level, minValue, maxValue);
+
+
+        if (slider != null)
+        {
+            slider.value = level;
+        }
+
+        Debug.Log("medicine gain = " + medicineGain);
+        Debug.Log("current health = " + level);
+    }
 }

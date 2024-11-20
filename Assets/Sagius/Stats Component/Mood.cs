@@ -18,4 +18,38 @@ public class MoodController : StatController
             AdjustStat();
         }
     }
+
+    private void OnEnable()
+    {
+        Actions.playIncreament += MoodIncrease;
+    }
+
+    private void OnDisable()
+    {
+        Actions.playIncreament -= MoodIncrease;
+    }
+
+    private void MoodIncrease(int playGain)
+    {
+        level += playGain;
+
+        if (level > maxValue)
+        {
+            expReturn?.Invoke(1);
+        }
+        else
+        {
+            expReturn?.Invoke(0);
+        }
+
+        level = Mathf.Clamp(level, minValue, maxValue);
+
+        if (slider != null)
+        {
+            slider.value = level;
+        }
+
+        Debug.Log("play gain = " + playGain);
+        Debug.Log("current mood = " + level);
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class StatController : MonoBehaviour
 
     public float minValue = 0f;
     public float maxValue = 100f;
+
+    public static Action<int> expReturn;
 
     private void Start()
     {
