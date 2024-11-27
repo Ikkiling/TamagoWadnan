@@ -22,6 +22,7 @@ public class CharacterExp : MonoBehaviour
     private void OnDisable()
     {
         Actions.expIncreament -= ExpIncrease;
+        StatController.expReturn -= ExpReturn;
     }
 
     private void ExpIncrease(int expGain)
@@ -46,10 +47,9 @@ public class CharacterExp : MonoBehaviour
 
         Debug.Log("Exp Gained = " + expGain);
         Debug.Log("current Exp = " + currentExp);
-
     }
 
-    private void ExpReturn(int value)
+    public void ExpReturn(int value)
     {
         if(value == 0)
         {

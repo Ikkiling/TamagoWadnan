@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Actions : MonoBehaviour
 {
-    public GameObject playerStats;
-
     public int feedAmount;
     public int feedExp;
 

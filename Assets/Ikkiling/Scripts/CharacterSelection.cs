@@ -4,17 +4,11 @@ public class CharacterSelection : MonoBehaviour
 {
     public GameObject characterSelectionMenu;
 
-    public GameObject character1;
-
-    public GameObject character2;
-
-
 
     public void Character1Selected()
     {
         characterSelectionMenu.SetActive(false);
-        character1.SetActive(true);
-        character2.SetActive(false);
+        CharacterEvolve.CharacterStage?.Invoke(1);
         Time.timeScale = 1.0f;
         PlayerPrefs.SetInt("CharacterSelected", 1);
         PlayerPrefs.Save();
@@ -23,10 +17,9 @@ public class CharacterSelection : MonoBehaviour
     public void Character2Selected()
     {
         characterSelectionMenu.SetActive(false);
-        character1.SetActive(false);
-        character2.SetActive(true);
+        CharacterEvolve.CharacterStage?.Invoke(4);
         Time.timeScale = 1.0f;
-        PlayerPrefs.SetInt("CharacterSelected", 2);
+        PlayerPrefs.SetInt("CharacterSelected", 4);
         PlayerPrefs.Save();
     }
 
