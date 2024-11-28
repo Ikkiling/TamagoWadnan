@@ -17,6 +17,23 @@ public class ThirstController : StatController
         {
             AdjustStat();
         }
+
+        changeRate = Random.Range(0, -10);
+
+        if (level > minValue)
+        {
+            level += changeRate * Time.deltaTime;
+        }
+
+        level = Mathf.Clamp(level, minValue, maxValue);
+
+        EmojiManager.GetThirst?.Invoke((int)level);
+        EndGame.GOThirst?.Invoke((int)level);
+
+        if (slider != null)
+        {
+            slider.value = level;
+        }
     }
 
     private void OnEnable()

@@ -17,6 +17,23 @@ public class HealthController : StatController
         {
             AdjustStat();
         }
+
+        changeRate = Random.Range(0, -10);
+
+        if (level > minValue)
+        {
+            level += changeRate * Time.deltaTime;
+        }
+
+        level = Mathf.Clamp(level, minValue, maxValue);
+
+        EmojiManager.GetHealth?.Invoke((int)level);
+        EndGame.GOHealth?.Invoke((int)level);
+
+        if (slider != null)
+        {
+            slider.value = level;
+        }
     }
 
     private void OnEnable()

@@ -17,6 +17,23 @@ public class HungerController : StatController
         {
             AdjustStat();
         }
+
+        changeRate = Random.Range(0, -10);
+
+        if (level > minValue)
+        {
+            level += changeRate * Time.deltaTime;
+        }
+
+        level = Mathf.Clamp(level, minValue, maxValue);
+
+        EmojiManager.GetHunger?.Invoke((int)level);
+        EndGame.GOHunger?.Invoke((int)level);
+
+        if (slider != null)
+        {
+            slider.value = level;
+        }
     }
 
     private void OnEnable()

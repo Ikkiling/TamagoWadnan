@@ -11,6 +11,7 @@ public class CharacterSelection : MonoBehaviour
         CharacterEvolve.CharacterStage?.Invoke(1);
         Time.timeScale = 1.0f;
         PlayerPrefs.SetInt("CharacterSelected", 1);
+        PlayerPrefs.SetInt("Square 1", 1);
         PlayerPrefs.Save();
     }
 
@@ -20,6 +21,7 @@ public class CharacterSelection : MonoBehaviour
         CharacterEvolve.CharacterStage?.Invoke(4);
         Time.timeScale = 1.0f;
         PlayerPrefs.SetInt("CharacterSelected", 4);
+        PlayerPrefs.SetInt("Triangle 1", 1);
         PlayerPrefs.Save();
     }
 
