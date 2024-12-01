@@ -26,7 +26,7 @@ public class EvolutionLineManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject); // Keeps the UI alive across scenes
+        //DontDestroyOnLoad(gameObject); // Keeps the UI alive across scenes
     }
 
     private void Start()
@@ -68,5 +68,10 @@ public class EvolutionLineManager : MonoBehaviour
                 lineImages[i].color = Color.black;        // Fully black for locked forms
             }
         }
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(0);
     }
 }

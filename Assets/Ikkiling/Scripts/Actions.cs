@@ -27,35 +27,48 @@ public class Actions : MonoBehaviour
     public static Action<int> expIncreament;
 
 
+    public AudioSource sfxAudioSource;
+    public AudioClip[] actionsAudioClips;
+
 
     public void Feed()
     {
         feedIncreament?.Invoke(feedAmount);
         expIncreament?.Invoke(feedExp);
+
+        sfxAudioSource.PlayOneShot(actionsAudioClips[0]);
     }
 
     public void Drink()
     {
         drinkIncreament?.Invoke(drinkAmount);
         expIncreament?.Invoke(drinkExp);
+
+        sfxAudioSource.PlayOneShot(actionsAudioClips[1]);
     }
 
     public void Bath()
     {
         bathIncreament?.Invoke(bathAmount);
         expIncreament?.Invoke(bathExp);
+
+        sfxAudioSource.PlayOneShot(actionsAudioClips[2]);
     }
 
     public void Play()
     {
         playIncreament?.Invoke(playAmount);
         expIncreament?.Invoke(playExp);
+
+        sfxAudioSource.PlayOneShot(actionsAudioClips[3]);
     }
 
     public void Medicine()
     {
         medicineIncreament?.Invoke(medicineAmount);
         expIncreament?.Invoke(medicineExp);
+
+        sfxAudioSource.PlayOneShot(actionsAudioClips[4]);
     }
 
 

@@ -18,6 +18,9 @@ public class CharacterEvolve : MonoBehaviour
     public Image evolveImage;
     public Sprite[] evolveSprite;
 
+    public AudioSource sfxAudioSource;
+    public AudioClip evolveAudioClip;
+
 
     private void OnEnable()
     {
@@ -53,6 +56,8 @@ public class CharacterEvolve : MonoBehaviour
 
     private void Evolve()
     {
+        sfxAudioSource.PlayOneShot(evolveAudioClip);
+
         StartCoroutine(EvolveAnimation());
 
         CharacterMutation();
@@ -143,6 +148,7 @@ public class CharacterEvolve : MonoBehaviour
     {
         currentStage = characterStage;
         CharacterSpriteController.CharacterSprite?.Invoke(currentStage);
+        EndGame.CharacterStage?.Invoke(currentStage);
     }
 
     private void GetCharacterMood(int mood)
