@@ -1614,6 +1614,13 @@ MonoBehaviour:
   overPanel: {fileID: 1647372493}
   pausePanel: {fileID: 623817268}
   optionPanel: {fileID: 1335650085}
+  pauseButtons:
+  - {fileID: 1587565804}
+  - {fileID: 451828008}
+  - {fileID: 1298267007}
+  - {fileID: 850466453}
+  - {fileID: 1938214738}
+  - {fileID: 1916142378}
 --- !u!4 &326404098
 Transform:
   m_ObjectHideFlags: 0
@@ -3317,6 +3324,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSelectionMenu: {fileID: 1625384401}
   characterExpression: {fileID: 579540253}
+  pauseButtons:
+  - {fileID: 1587565804}
+  - {fileID: 451828008}
+  - {fileID: 1298267007}
+  - {fileID: 850466453}
+  - {fileID: 1938214738}
+  - {fileID: 1916142378}
 --- !u!4 &497160036
 Transform:
   m_ObjectHideFlags: 0
@@ -5270,7 +5284,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 623817268}
-  pauseButton: {fileID: 1587565804}
+  pauseButtons:
+  - {fileID: 1587565804}
+  - {fileID: 451828008}
+  - {fileID: 1298267007}
+  - {fileID: 850466453}
+  - {fileID: 1938214738}
+  - {fileID: 1916142378}
 --- !u!4 &860879996
 Transform:
   m_ObjectHideFlags: 0
@@ -8902,6 +8922,13 @@ MonoBehaviour:
   sfxAudioSource: {fileID: 1503715751}
   endAudioClip: {fileID: 8300000, guid: 64109283dacef0d4f952f53b63ee7308, type: 3}
   overAudioClip: {fileID: 8300000, guid: d8193cea7000c31488c5182b6ea4d62f, type: 3}
+  pauseButtons:
+  - {fileID: 1587565804}
+  - {fileID: 451828008}
+  - {fileID: 1298267007}
+  - {fileID: 850466453}
+  - {fileID: 1938214738}
+  - {fileID: 1916142378}
 --- !u!1 &1503715750
 GameObject:
   m_ObjectHideFlags: 0

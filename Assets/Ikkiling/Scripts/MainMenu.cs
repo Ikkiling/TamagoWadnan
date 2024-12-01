@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
         optionPanel.SetActive(false);
         creditPanel.SetActive(false);
     }
+
     public void PlayButton()
     {
         SceneManager.LoadScene(1);
@@ -24,5 +25,13 @@ public class MainMenu : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }

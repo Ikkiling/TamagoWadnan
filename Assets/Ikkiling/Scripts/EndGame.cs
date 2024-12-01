@@ -41,6 +41,8 @@ public class EndGame : MonoBehaviour
     private bool endAudio;
     private bool overAudio;
 
+    public Button[] pauseButtons;
+
 
     private void OnEnable()
     {
@@ -90,7 +92,12 @@ public class EndGame : MonoBehaviour
                 sfxAudioSource.PlayOneShot(overAudioClip);
                 overAudio = true;
             }
-  
+
+            for (int i = 0; i < pauseButtons.Length; i++)
+            {
+                pauseButtons[i].interactable = false;
+            }
+
 
             PlayerPrefs.SetInt("CharacterSelected", 0);
 
@@ -106,13 +113,13 @@ public class EndGame : MonoBehaviour
     {
         if (endPanel != null && endPanel.activeSelf)
         {
-            switch (PlayerPrefs.GetInt("CharacterSelected"))
+            switch (currentCharacterStage)
             {
-                case 1:
+                case 3:
                     endCharacterImage.sprite = endcharacterSprite[0];
                     endCharacterExpression.transform.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -100, 0);
                     break;
-                case 4:
+                case 6:
                     endCharacterImage.sprite = endcharacterSprite[1];
                     endCharacterExpression.transform.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -100, 0);
                     break;
@@ -164,6 +171,11 @@ public class EndGame : MonoBehaviour
             {
                 sfxAudioSource.PlayOneShot(endAudioClip);
                 endAudio = true;
+            }
+
+            for (int i = 0; i < pauseButtons.Length; i++)
+            {
+                pauseButtons[i].interactable = false;
             }
 
             PlayerPrefs.SetInt("CharacterSelected", 0);

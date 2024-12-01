@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public class GameplayInitialize : MonoBehaviour
 {
@@ -9,6 +9,8 @@ public class GameplayInitialize : MonoBehaviour
     public GameObject overPanel;
     public GameObject pausePanel;
     public GameObject optionPanel;
+
+    public Button[] pauseButtons;
 
     //set script execution order from this then only character selection.
     //need to modify character selection menu a bit.
@@ -31,6 +33,12 @@ public class GameplayInitialize : MonoBehaviour
             case 0:
                 characterSelectionMenu.SetActive(true);
                 CharacterEvolve.CharacterStage?.Invoke(0);
+
+                for (int i = 0; i < pauseButtons.Length; i++)
+                {
+                    pauseButtons[i].interactable = false;
+                }
+
                 Time.timeScale = 0.0f;
                 break;
 
@@ -38,6 +46,12 @@ public class GameplayInitialize : MonoBehaviour
                 characterSelectionMenu.SetActive(false);
                 characterExpression.transform.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -100, 0);
                 CharacterEvolve.CharacterStage?.Invoke(1);
+
+                for (int i = 0; i < pauseButtons.Length; i++)
+                {
+                    pauseButtons[i].interactable = true;
+                }
+
                 Time.timeScale = 1.0f;
                 break;
 
@@ -45,12 +59,24 @@ public class GameplayInitialize : MonoBehaviour
                 characterSelectionMenu.SetActive(false);
                 characterExpression.transform.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -200, 0);
                 CharacterEvolve.CharacterStage?.Invoke(4);
+
+                for (int i = 0; i < pauseButtons.Length; i++)
+                {
+                    pauseButtons[i].interactable = true;
+                }
+
                 Time.timeScale = 1.0f;
                 break;
 
             default:
                 characterSelectionMenu.SetActive(true);
                 CharacterEvolve.CharacterStage?.Invoke(0);
+
+                for (int i = 0; i < pauseButtons.Length; i++)
+                {
+                    pauseButtons[i].interactable = false;
+                }
+
                 Time.timeScale = 0.0f;
                 break;
 
